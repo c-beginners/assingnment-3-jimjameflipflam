@@ -20,16 +20,19 @@ public:
 	}
 	void fillArray()
 	{
-		int input;
 		int x;
 		int * p = grid[0];
 		for(int i = 0; i < row; i++){
 			for(int j = 0;j < col;j++){
 				std::cout << "\nEnter Value:";
-				std::cin >> input;
-				x = (input);
+				std::string input = "";
+				getline(std::cin, input);
+    			std::stringstream myStream(input);
+				x = std::stoi(input);
 				grid[i][j] = x;
-				p++;
+				if(i != row-1 && j != col-1){
+					p++;
+				}
 				for(int k = 0; k < row; k++){
 					std::cout << '\n';
 					for(int l = 0; l < col; l++){
